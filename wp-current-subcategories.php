@@ -8,17 +8,17 @@
 * Author URI: http://www.francescosganga.it/
 **/
 
-function wpb_load_widget() {
-	register_widget('sc_widget');
+function wpsubcategories_load_widget() {
+	register_widget('wpsubcategories_widget');
 }
-add_action('widgets_init', 'wpb_load_widget');
+add_action('widgets_init', 'wpsubcategories_load_widget');
  
-class sc_widget extends WP_Widget {
+class wpsubcategories_widget extends WP_Widget {
 	function __construct() {
 		parent::__construct( 
-			'wpb_widget', 
-			__('WP Current Subcategories', 'sc_widget_domain'),
-			array('description' => __('Show current subcategories', 'sc_widget_domain')) 
+			'wpsubcategories_widget', 
+			__('WP Current Subcategories', 'wpsubcategories_widget_domain'),
+			array('description' => __('Show current subcategories', 'wpsubcategories_widget_domain')) 
 		);
 	}
  
