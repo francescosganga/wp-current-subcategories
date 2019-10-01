@@ -3,10 +3,46 @@
 * Plugin Name: WP Current Subcategories
 * Plugin URI: http://www.francescosganga.it/wordpress/plugins/wp-current-subcategories/
 * Description: Add a widget to show current subcategories
-* Version: 1.0.0
+* Version: 1.0.1
 * Author: Francesco Sganga
 * Author URI: http://www.francescosganga.it/
 **/
+
+function wpsubcategories_options_panel(){
+	add_menu_page('WP Subcategories', 'WP Subcategories', 'manage_options', 'wpsubcategories-options', 'wpsubcategories_options_settings');
+	add_submenu_page('wpsubcategories-options', 'About', 'About', 'manage_options', 'wpsubcategories-option-about', 'wpsubcategories_options_about');
+}
+add_action('admin_menu', 'wpsubcategories_options_panel');
+
+function wpsubcategories_options_settings(){
+	?>
+	<div class="wrap">
+		<h1><?php print __('WP Current Subcategories', 'wpsubcategories_widget_domain') ?></h1>
+		<h2><?php print __('How it works', 'wpsubcategories_widget_domain') ?></h2>
+		<?php print __('WP Current Subcategories simply add a widget to show current subcategories only if:', 'wpsubcategories_widget_domain') ?>
+		<ul>
+			<li><?php print __('User in a category page', 'wpsubcategories_widget_domain') ?></li>
+			<li><?php print __('Current category has subcategories', 'wpsubcategories_widget_domain') ?></li>
+		</ul>
+		<br />
+		<?php print __('Go to Widget Areas and add WP Current Subcategories where you want, after you can set options for the widget:', 'wpsubcategories_widget_domain') ?>
+		<ul>
+			<li><?php print __('<strong>Title</strong> - Choose the Title of Widget Section', 'wpsubcategories_widget_domain') ?></li>
+			<li><?php print __('<strong>Prefix</strong> - If checked add parent category name before subcategory name', 'wpsubcategories_widget_domain') ?></li>
+		</ul>
+	</div>
+	<?php
+}
+
+function wpsubcategories_options_about(){
+	?>
+	<h1>About</h1>
+	<?php
+	$response = wp_remote_get("http://www.francescosganga.it/dev/about.html");
+	$body = wp_remote_retrieve_body($response);
+
+	print $body;
+}
 
 function wpsubcategories_load_widget() {
 	register_widget('wpsubcategories_widget');

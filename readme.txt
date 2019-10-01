@@ -5,7 +5,7 @@ Tags: widget, current, subcategories
 Requires at least: 5.1
 Tested up to: 5.2.3
 Requires PHP: 5.6
-Stable tag: 1.0.7
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -35,5 +35,8 @@ Enjoy your new Wordpress Plugin.
  
 == Changelog ==
  
-= 1.0 =
+= 1.0.0 =
 * First plugin release
+= 1.0.1 =
+* Added plugin page on admin menu
+* Added about section
